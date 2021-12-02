@@ -2,10 +2,10 @@ package org.base.UI;
 
 import org.openqa.selenium.WebElement;
 
-public abstract class BaseWebElement {
+public  class WebElementWrapper {
     protected WebElement coreElement;
 
-    public BaseWebElement(WebElement coreElement){
+    public WebElementWrapper(WebElement coreElement){
         this.coreElement = coreElement;
     }
 
