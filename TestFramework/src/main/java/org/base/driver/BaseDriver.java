@@ -24,8 +24,8 @@ public class BaseDriver {
                 break;
             default:
                 System.err.println("No such browser type found! Please check config file");
-                baseDriverWrapper.manage().window().maximize();
-                baseDriverWrapper.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         }
+        baseDriverWrapper.manage().window().maximize();
+        baseDriverWrapper.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
     }
 }
