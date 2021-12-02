@@ -1,2 +1,3 @@
 include 'TestFramework'
+include 'Tests'
 
