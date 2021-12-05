@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverWrapper {
-    protected WebDriver baseDriverWrapper;
+    public WebDriver baseDriverWrapper;
     
     public WebDriverWrapper(WebDriver baseDriverWrapper){
         this.baseDriverWrapper = baseDriverWrapper;
