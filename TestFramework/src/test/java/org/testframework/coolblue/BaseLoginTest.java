@@ -29,11 +29,14 @@ public class BaseLoginTest extends BaseTest {
         WebElement loginIcon = driver.findElement(By.id("cross-icon"));
         loginIcon.click();
 
+        WebElement inloggenButton = driver.findElement(By.xpath("//div[3]/button"));
+        inloggenButton.click();
+
         WebElement emailField = driver.findElement(By.id("header_menu_emailaddress"));
-        emailField.sendKeys("irakumka@mail.ru");
+        emailField.sendKeys(Configuration.getProperty("user"));
 
         WebElement passwordField = driver.findElement(By.id("header_menu_password"));
-        passwordField.sendKeys("Password");
+        passwordField.sendKeys(Configuration.getProperty("password"));
 
         WebElement submitButton = driver.findElement(By.xpath("//form//button[contains(text(),'Inloggen')]"));
         submitButton.click();
