@@ -12,7 +12,7 @@ public class DriverFactory {
         if(webDriverWrapper != null){
             return webDriverWrapper;
         }
-        switch (Configuration.getProperty("browser")){
+        switch (new Configuration().getProperty("browser")){
             case "Chrome":
                 webDriverWrapper = new WebDriverWrapper(new ChromeDriver());
                 break;
