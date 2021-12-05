@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.base.config.Configuration;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,11 +15,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
 public class BaseLoginTest {
-
     WebDriver driver;
     String baseUrl;
 
-@Before
+    @Before
     public void Set() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -29,7 +29,7 @@ public class BaseLoginTest {
 
     @Test
     public void loginTest(){
-    driver.get(baseUrl);
+    driver.get(Configuration.getProperty("url"));
 
         WebElement acceptCookieButton = driver.findElement(By.name("accept_cookie"));
         acceptCookieButton.click();
@@ -49,9 +49,8 @@ public class BaseLoginTest {
        Assert.assertTrue(driver.findElement(By.xpath("//a/div[contains(text(), 'Welkom')]")).isDisplayed());
     }
 
-
-
-
-
-
+    @After
+    public void cleanup() {
+        driver.close();
+    }
 }
