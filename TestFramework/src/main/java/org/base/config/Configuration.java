@@ -1,17 +1,15 @@
 package org.base.config;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 
 public class Configuration {
     private static Properties properties = new Properties();
-    private static final String configName = "config.properties";
+    private static final String configName = "build/resources/test/config.properties";
 
-    public String getProperty(String propertyName){
+    public static String getProperty(String propertyName){
         try {
-            InputStream reader = getClass().getClassLoader().getResourceAsStream(configName);
+            InputStream reader = new FileInputStream(configName);
             properties.load(reader);
             reader.close();
             return properties.getProperty(propertyName);

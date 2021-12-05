@@ -29,7 +29,7 @@ public class BaseLoginTest {
 
     @Test
     public void loginTest(){
-    driver.get(new Configuration().getProperty("url"));
+    driver.get(Configuration.getProperty("url"));
 
         WebElement acceptCookieButton = driver.findElement(By.name("accept_cookie"));
         acceptCookieButton.click();
