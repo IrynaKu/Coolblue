@@ -1,3 +1,5 @@
+package org.testframework.coolblue;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.base.config.Configuration;
 import org.junit.After;
@@ -8,28 +10,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testframework.coolblue.common.BaseTest;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseLoginTest {
-    WebDriver driver;
-    String baseUrl;
+public class BaseLoginTest extends BaseTest {
 
-    @Before
-    public void Set() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        baseUrl = "https://www.coolblue.nl/";
-    }
+
+
 
     @Test
     public void loginTest(){
-    driver.get(Configuration.getProperty("url"));
+        driver.get(Configuration.getProperty("url"));
 
         WebElement acceptCookieButton = driver.findElement(By.name("accept_cookie"));
         acceptCookieButton.click();
@@ -49,8 +41,5 @@ public class BaseLoginTest {
        Assert.assertTrue(driver.findElement(By.xpath("//a/div[contains(text(), 'Welkom')]")).isDisplayed());
     }
 
-    @After
-    public void cleanup() {
-        driver.close();
-    }
+
 }
