@@ -1,25 +1,33 @@
 package org.testframework.coolblue.common;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.base.driver.DriverFactory;
-import org.junit.After;
-import org.junit.Before;
+import org.base.config.SpringConfiguration;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 
-import java.sql.Driver;
-import java.util.concurrent.TimeUnit;
+@ContextConfiguration(classes = {SpringConfiguration.class})
+public abstract class BaseTest extends AbstractTestNGSpringContextTests {
 
-public abstract class BaseTest {
-    protected WebDriver driver;
-    protected String baseUrl;
+    @Autowired
+    public WebDriver driver;
 
-    @Before
-    public void Set() {
-        driver = DriverFactory.getDriver().baseDriverWrapper;
+    AnnotationConfigApplicationContext context;
+
+    @Autowired
+    public void setWebDriver(WebDriver driver){
+        this.driver = driver;
     }
 
-    @After
+    @BeforeClass
+    public void Set() throws Exception {
+        super.springTestContextBeforeTestClass();
+    }
+
+    @AfterTest
     public void cleanup() {
         driver.close();
     }
