@@ -3,8 +3,17 @@ package org.pages;
 import org.base.UI.BasicPage;
 import org.base.UI.WebElementWrapper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class MainPage extends BasicPage{
 
-    public WebElementWrapper ComputersAndTablets = new WebElementWrapper(baseDriver.findElement(By.xpath("//a[@href='/computers-tablets']")));
+
+    public WebElement getComputersAndTablets() {
+        return  baseDriver.findElement(By.xpath("//li/button[contains(@class, 'navigation-button') and contains(text(), 'Computers & tablets')]"));
+    }
+
+    public WebElement getComputersAndTabletsLink() {
+        return  baseDriver.findElement(By.xpath("//a[@href='/laptops-desktops-monitoren']"));
+    }
+
 }
