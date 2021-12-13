@@ -1,5 +1,6 @@
 package org.base.driver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.base.config.Configuration;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,6 +15,7 @@ public class DriverFactory {
         }
         switch (Configuration.getProperty("browser")){
             case "Chrome":
+                WebDriverManager.chromedriver().setup();
                 webDriverWrapper = new WebDriverWrapper(new ChromeDriver());
                 break;
             case "Firefox":
