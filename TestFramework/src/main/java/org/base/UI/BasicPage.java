@@ -1,12 +1,14 @@
 package org.base.UI;
 
-import org.base.driver.WebDriverWrapper;
-import org.base.driver.DriverFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BasicPage {
-    protected WebDriverWrapper baseDriver = DriverFactory.getDriver();
+    @Autowired
+    protected WebDriver baseDriver;
 
-    public WebElementWrapper logo = new WebElementWrapper(baseDriver.findElement(By.xpath("//*[@title='Coolblue home']")));
+    public WebElement logo = baseDriver.findElement(By.xpath("//*[@title='Coolblue home']"));
 
 }

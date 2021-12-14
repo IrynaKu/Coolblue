@@ -1,10 +1,10 @@
 package org.pages;
 
 import org.base.UI.BasicPage;
-import org.base.UI.WebElementWrapper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class MainPage extends BasicPage{
 
-    public WebElementWrapper ComputersAndTablets = new WebElementWrapper(baseDriver.findElement(By.xpath("//a[@href='/computers-tablets']")));
+    public WebElement ComputersAndTablets = baseDriver.findElement(By.xpath("//a[@href='/computers-tablets']"));
 }
