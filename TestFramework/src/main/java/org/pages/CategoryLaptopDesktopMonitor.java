@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 public class CategoryLaptopDesktopMonitor extends BasicPage {
 
-    public WebElement getLaptops(){
+    public WebElement getLaptopsFilter(){
         return baseDriver.findElement(By.xpath("//a[@href='/laptops']"));
     }
 
