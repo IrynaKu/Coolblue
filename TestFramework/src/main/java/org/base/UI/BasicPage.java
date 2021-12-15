@@ -4,11 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 public abstract class BasicPage {
-    @Autowired
     protected WebDriver baseDriver;
 
-    public WebElement logo = baseDriver.findElement(By.xpath("//*[@title='Coolblue home']"));
+    public BasicPage(WebDriver driver)
+    {
+        this.baseDriver = driver;
+    }
+
+    public WebElement getLogo()
+    {
+        return baseDriver.findElement(By.xpath("//*[@title='Coolblue home']"));
+    }
 
 }

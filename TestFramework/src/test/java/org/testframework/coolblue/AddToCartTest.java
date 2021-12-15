@@ -4,25 +4,26 @@ import org.base.config.Configuration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.pages.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.testframework.coolblue.common.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AddToCartTest extends BaseTest {
 
+    @Autowired
     private MainPage mainPage;
+    @Autowired
     private CategoryLaptopDesktopMonitor categoryLaptopDesktopMonitor;
+    @Autowired
     private CategoryLaptop categoryLaptop;
+    @Autowired
     private ProductsListPage productsListPage;
+    @Autowired
     private AlmostYoursPage almostYoursPage;
 
     @Test(groups = "Smoke")
-    public void addToCartTest(){
-        mainPage = new MainPage(driver);
-        categoryLaptopDesktopMonitor = new CategoryLaptopDesktopMonitor(driver);
-        categoryLaptop = new CategoryLaptop(driver);
-        productsListPage = new ProductsListPage(driver);
-        almostYoursPage = new AlmostYoursPage(driver);
+    public void addToCartTest() {
 
         driver.get(Configuration.getProperty("url"));
         //Accept cookie
