@@ -66,4 +66,14 @@ public class SpringConfiguration {
     public AlmostYoursPage getAlmostYoursPage(WebDriver driver){
         return new AlmostYoursPage(driver);
     }
+
+    @Bean
+    public LoginPopUp1 getLoginPopUp1(WebDriver driver){
+        return new LoginPopUp1(driver);
+    }
+
+    @Bean
+    public LoginPopUp2 getLoginPopUp2(WebDriver driver){
+        return new LoginPopUp2(driver);
+    }
 }

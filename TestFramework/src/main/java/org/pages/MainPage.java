@@ -5,15 +5,13 @@ import org.base.UI.BasicPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.springframework.context.annotation.Bean;
+
 
 public class MainPage extends BasicPage{
-    MainPage page;
 
     public MainPage(WebDriver driver) {
         super(driver);
     }
-
 
     public WebElement getComputersAndTabletsLink() {
         return  baseDriver.findElement(By.xpath("//li/button[contains(@class, 'navigation-button') and contains(text(), 'Computers & tablets')]"));
@@ -23,4 +21,11 @@ public class MainPage extends BasicPage{
         return  baseDriver.findElement(By.xpath("//a[@href='/laptops-desktops-monitoren']"));
     }
 
+    public WebElement getLoginIcon(){
+        return baseDriver.findElement(By.id("cross-icon"));
+    }
+
+    public WebElement getWelcomeText(){
+        return baseDriver.findElement(By.xpath("//a/div[contains(text(), 'Welkom')]"));
+    }
 }

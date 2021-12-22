@@ -7,12 +7,9 @@ import org.openqa.selenium.WebElement;
 
 public class AlmostYoursPage extends BasicPage {
 
-
     public AlmostYoursPage(WebDriver driver) {
         super(driver);
     }
-
-
 
     public WebElement getCartButton(){
         return baseDriver.findElement(By.xpath("//a[@href='/winkelmandje']"));
