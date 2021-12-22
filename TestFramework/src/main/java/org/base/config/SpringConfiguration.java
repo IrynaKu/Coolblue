@@ -1,10 +1,12 @@
 package org.base.config;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import jdk.tools.jaotc.Main;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.pages.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -38,5 +40,30 @@ public class SpringConfiguration {
         webDriverWrapper.manage().window().maximize();
         webDriverWrapper.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         return webDriverWrapper;
+    }
+
+    @Bean
+    public MainPage getMainPage(WebDriver driver){
+        return new MainPage(driver);
+    }
+
+    @Bean
+    public CategoryLaptopDesktopMonitor getCategoryLaptopDesktopMonitorPage (WebDriver driver){
+        return new CategoryLaptopDesktopMonitor(driver);
+    }
+
+    @Bean
+    public CategoryLaptop getCategoryLaptopPage(WebDriver driver){
+        return new CategoryLaptop(driver);
+    }
+
+    @Bean
+    public ProductsListPage getProductsListPage(WebDriver driver){
+        return new ProductsListPage(driver);
+    }
+
+    @Bean
+    public AlmostYoursPage getAlmostYoursPage(WebDriver driver){
+        return new AlmostYoursPage(driver);
     }
 }
